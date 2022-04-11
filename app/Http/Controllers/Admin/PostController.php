@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Doctrine\Inflector\Rules\Word;
 
@@ -92,7 +93,14 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // implementazione di CARBON
+        // scopri e visualizza data e ora della pubblicazione del post
+        $now = Carbon::now();
+
+        $postDateTime = Carbon::create($post->created_at);
+
+        $diffInDays = $now->diffInDays($postDateTime);
+
         return view('admin.post.show', compact('post'));
     }
 
