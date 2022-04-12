@@ -58,7 +58,7 @@ export default {
   },
 
   created() {
-      this.getPosts();
+      this.getPosts(1);
   },
 };
 </script>
